@@ -74,7 +74,7 @@ Ketik `exit` untuk keluar dari shell MariaDB.
 
 # Panduan Instalasi phpMyAdmin di CentOS 9
 
-Berikut adalah langkah-langkah untuk menambahkan instalasi **phpMyAdmin** pada MariaDB yang sudah diinstal di **CentOS 9**, beserta README.md yang mencakup semuanya:  
+Berikut adalah langkah-langkah untuk menambahkan instalasi **phpMyAdmin** pada MariaDB yang sudah diinstal di **CentOS 9**:  
 
 ### Langkah-langkah Instalasi
 1. Tambahkan repositori EPEL dan instal phpMyAdmin:
@@ -100,3 +100,22 @@ Berikut adalah langkah-langkah untuk menambahkan instalasi **phpMyAdmin** pada M
    ```
    http://<IP-Server-Anda>/phpmyadmin
    ```
+   
+## Troubleshooting
+
+1. **phpMyAdmin tidak bisa diakses:**
+   - Periksa status Apache:
+     ```bash
+     sudo systemctl status httpd
+     ```
+   - Pastikan firewall mengizinkan HTTP/HTTPS:
+     ```bash
+     sudo firewall-cmd --add-service=http --permanent
+     sudo firewall-cmd --add-service=https --permanent
+     sudo firewall-cmd --reload
+     ```
+
+2. **Tidak dapat login ke phpMyAdmin:**
+   - Pastikan Anda menggunakan username dan password MariaDB yang benar.
+
+---

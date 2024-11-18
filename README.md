@@ -87,16 +87,24 @@ Berikut adalah langkah-langkah untuk menambahkan instalasi **phpMyAdmin** pada M
    sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
    ```
    Ubah `Require local` menjadi `Require all granted`, lalu simpan.
-3. Aktifkan dan mulai layanan Apache:
+
+   ```bash
+   <Directory "/var/www/html/phpmyadmin">
+    ...
+    Require all granted
+    ...
+   </Directory>
+   ```
+4. Aktifkan dan mulai layanan Apache:
    ```bash
    sudo systemctl enable httpd
    sudo systemctl start httpd
    ```
-4. Restart Apache:
+5. Restart Apache:
    ```bash
    sudo systemctl restart httpd
    ```
-5. Akses phpMyAdmin di browser:
+6. Akses phpMyAdmin di browser:
    ```
    http://<IP-Server-Anda>/phpmyadmin
    ```
